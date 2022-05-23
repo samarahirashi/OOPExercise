@@ -5,9 +5,9 @@ from abc import ABC, abstractmethod
 
 class Shape(ABC):
 
-    def __init__(self,color,filled):
-        self._color = "Red"
-        self._filled = True
+    def __init__(self, color="Red", filled=True):
+        self._color = color
+        self._filled = filled
 
     def getColor(self):
         return self._color
@@ -30,13 +30,12 @@ class Shape(ABC):
         ...
 
     def toString(self):
-        return self._color, self._filled
+        return "Color: "+self._color+", Filled: "+str(self._filled)
 
 
 class Circle(Shape):
 
-    def __init__(self, radius):
-        self._radius = 1.0
+    _radius = 1.0
 
     def getRadius(self):
         return self._radius
@@ -57,14 +56,13 @@ class Circle(Shape):
         return perimeter
 
     def toString(self):
-        return self._color, self._filled, self._radius
+        return "Color: "+self._color+", Filled: "+str(self._filled)+", Radius: "+str(self._radius)
 
 
 class Rectangle(Shape):
 
-    def __init__(self, width, length):
-        self._width = 1.0
-        self._length = 1.0
+    _width = 1.0
+    _length = 1.0
 
     def getWidth(self):
         return self._width
@@ -91,13 +89,12 @@ class Rectangle(Shape):
         return perimeter
 
     def toString(self):
-        return self._color, self._filled, self._width, self._length
+        return "Color: "+self._color+", Filled: "+str(self._filled)+", Width: "+str(self._width)+", Length: "+str(self._length)
 
 
 class Square(Rectangle):
 
-    def __init__(self, side):
-        self.side = side
+    side = 0
 
     def getSide(self):
         return self.side
@@ -112,8 +109,9 @@ class Square(Rectangle):
         self._length = value
 
     def toString(self):
-        return self._color, self._filled, self._width, self._length
+        return "Color: "+self._color+", Filled: "+str(self._filled)+", Width: "+str(self._width)+", Length: "+str(self._length)
 
 
 if __name__ == '__main__':
-    pass
+    example = Circle()
+    print(example.toString())
