@@ -1,5 +1,5 @@
 # OOP
-
+import math
 from abc import ABC, abstractmethod
 
 
@@ -110,6 +110,28 @@ class Square(Rectangle):
 
     def toString(self):
         return "Color: "+self._color+", Filled: "+str(self._filled)+", Width: "+str(self._width)+", Length: "+str(self._length)
+
+
+class EquilateralTriangle(Shape):
+
+    _sideLength = 1.0
+
+    def getSideLength(self):
+        return self._sideLength
+
+    def setSideLength(self, value):
+        self._sideLength = value
+
+    def getArea(self):
+        area = (math.sqrt(3)/4)*(self._sideLength*self._sideLength)
+        return area
+
+    def getPerimeter(self):
+        result = self._sideLength * 3
+        return result
+
+    def toString(self):
+        return "Color: "+self._color+", Filled: "+str(self._filled)+", Side Length:"+str(self._sideLength)
 
 
 if __name__ == '__main__':
